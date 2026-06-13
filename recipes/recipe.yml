@@ -16,7 +16,12 @@ modules:
     files:
       - source: system
         destination: /
-
+- type: default-flatpaks
+  configurations:
+    - notify: true
+      scope: system
+      install:
+        - com.heroicgameslauncher.hgl
   - type: dnf
     install:
       packages:
