@@ -1,1 +1,10 @@
-
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=KDE Theme Backup Manager
+Comment=Backup i przywracanie motywów KDE
+Exec=python3 /usr/local/bin/kde-theme-manager
+Icon=preferences-desktop-theme
+Terminal=false
+Categories=Settings;System;
+StartupNotify=true
