@@ -20,9 +20,6 @@ modules:
   - type: dnf
     install:
       packages:
-        - brave-browser
-        - darkly
-        - heroic-games-launcher-bin
         - easyeffects
         - git
         - gcc
