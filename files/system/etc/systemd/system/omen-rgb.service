@@ -1,1 +1,12 @@
+[Unit]
+Description=HP Omen RGB Keyboard Driver
+After=systemd-modules-load.service
+Wants=systemd-modules-load.service
 
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/omen-loader
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
