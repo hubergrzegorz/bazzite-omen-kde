@@ -1,1 +1,10 @@
+#!/usr/bin/env bash
+set -e
 
+MODULE="/var/lib/omen-rgb-keyboard/src/omen_rgb_keyboard.ko"
+
+if lsmod | grep -q "^omen_rgb_keyboard"; then
+    exit 0
+fi
+
+/usr/sbin/insmod "$MODULE"
