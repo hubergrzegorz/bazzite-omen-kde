@@ -1,1 +1,76 @@
+#!/usr/bin/env bash
+
+set -e
+
+REPO="https://github.com/alessandromrc/omen-rgb-keyboard.git"
+TARGET="/var/lib/omen-rgb-keyboard"
+
+echo "========================================"
+echo " HP OMEN RGB - Pełna instalacja"
+echo "========================================"
+
+echo "[1/7] Sprawdzanie narzędzi..."
+for cmd in git gcc make; do
+    command -v "$cmd" >/dev/null || { echo "Brak programu: $cmd"; exit 1; }
+done
+
+echo "[2/7] Pobieranie lub aktualizacja repozytorium..."
+if [ -d "$TARGET/.git" ]; then
+    sudo git -C "$TARGET" pull
+else
+    sudo rm -rf "$TARGET"
+    sudo git clone "$REPO" "$TARGET"
+fi
+
+sudo chown -R "$USER:$USER" "$TARGET"
+
+echo "[3/7] Kompilacja sterownika..."
+cd "$TARGET/src"
+make -C /lib/modules/$(uname -r)/build M=$PWD clean || true
+make -C /lib/modules/$(uname -r)/build M=$PWD modules
+
+echo "[4/7] Instalacja loadera..."
+cat >/tmp/omen-loader.sh <<'EOF'
+#!/usr/bin/env bash
+set -e
+MODULE="/var/lib/omen-rgb-keyboard/src/omen_rgb_keyboard.ko"
+
+if lsmod | grep -q "^omen_rgb_keyboard"; then
+    exit 0
+fi
+
+/usr/sbin/insmod "$MODULE"
+EOF
+
+sudo install -Dm755 /tmp/omen-loader.sh /usr/local/sbin/omen-loader.sh
+
+echo "[5/7] Konfiguracja SELinux..."
+if command -v semanage >/dev/null 2>&1; then
+    sudo semanage fcontext -a -t modules_object_t "/var/lib/omen-rgb-keyboard/src/omen_rgb_keyboard\.ko" 2>/dev/null || true
+    sudo restorecon -v /var/lib/omen-rgb-keyboard/src/omen_rgb_keyboard.ko 2>/dev/null || true
+fi
+
+echo "[6/7] Instalacja usługi systemd..."
+sudo tee /etc/systemd/system/omen-rgb.service >/dev/null <<'EOF'
+[Unit]
+Description=HP Omen RGB Keyboard Driver
+After=systemd-modules-load.service
+Wants=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /usr/local/sbin/omen-loader.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable omen-rgb.service
+
+echo "[7/7] Uruchamianie sterownika..."
+sudo systemctl restart omen-rgb.service || true
+
+echo "Gotowe."
 
