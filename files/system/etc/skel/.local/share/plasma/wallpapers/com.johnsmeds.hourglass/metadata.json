@@ -1,0 +1,19 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "johnsmeds@gmail.com",
+                "Name": "john smeds"
+            }
+        ],
+        "Category": "Wallpaper",
+        "Description": "Wallpaper that changes to customizable images based on time of day.",
+        "Icon": "preferences-desktop-wallpaper",
+        "Id": "com.johnsmeds.hourglass",
+	"License": "GLP-3.0-or-later",
+        "Name": "hourglass",
+        "Version": "1.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Wallpaper"
+}

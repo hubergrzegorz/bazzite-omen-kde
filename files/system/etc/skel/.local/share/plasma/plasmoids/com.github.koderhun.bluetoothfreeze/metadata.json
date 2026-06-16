@@ -1,0 +1,23 @@
+{
+  "KPackageStructure": "Plasma/Applet",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Email": "koderhanov@gmail.com",
+        "Name": "Koderhun"
+      }
+    ],
+    "Category": "Utilities",
+    "ServiceTypes": ["Plasma/Applet"],
+    "EnabledByDefault": true,
+    "Name": "BluetoothFreeze",
+    "Description": "Timer for keeping bluetooth on. A quiet sound is played at a specified interval. The default interval is 10 min.",
+    "Id": "com.github.koderhun.bluetoothfreeze",
+    "Icon": "lines-connector",
+    "Version": 0.5,
+    "License": "GPL-3.0-or-later",
+    "BugReportUrl": "",
+    "Website": ""
+  },
+  "X-Plasma-API-Minimum-Version": "6.0"
+}

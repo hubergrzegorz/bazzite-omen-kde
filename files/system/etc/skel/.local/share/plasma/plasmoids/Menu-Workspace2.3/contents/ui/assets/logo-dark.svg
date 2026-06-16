@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16mm"
+   height="16mm"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="logo-dark.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="11.032324"
+     inkscape:cx="20.983794"
+     inkscape:cy="28.008606"
+     inkscape:window-width="1272"
+     inkscape:window-height="915"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     showguides="false" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect8"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,1.3984987,0,1 @ F,0,0,1,0,1.457973,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="13.982096"
+       height="14.751976"
+       patternTransform="translate(17.475521,0.51446931)"
+       preserveAspectRatio="xMidYMid"
+       id="pattern5">
+      <g
+         id="g5"
+         transform="translate(-17.475521,-0.51446931)">
+        <g
+           style="fill:#202020;fill-opacity:1"
+           id="g5-7"
+           transform="matrix(0.0506585,0,0,0.0506585,17.876131,0.51446931)">
+          <g
+             id="g2"
+             style="fill:#202020;fill-opacity:1">
+            <polygon
+               points="5.272,0 5.272,263 35.272,263 35.272,30 227.728,30 227.728,263 257.728,263 257.728,0 "
+               id="polygon1-5"
+               style="fill:#202020;fill-opacity:1" />
+          </g>
+        </g>
+        <rect
+           style="fill:#202020;fill-opacity:1;stroke-width:1.05862"
+           id="rect5-6"
+           width="40.567226"
+           height="4.4251723"
+           x="18.292395"
+           y="83.877907"
+           transform="matrix(0.34466482,0,0,0.34466482,11.170776,-15.16852)" />
+        <g
+           id="g4"
+           transform="translate(0.12733914,0.04502119)">
+          <g
+             id="g3"
+             transform="translate(20.602578,11.50355)">
+            <g
+               id="g1"
+               transform="translate(-25.029888)">
+              <rect
+                 style="fill:#202020;fill-opacity:1;stroke:none;stroke-width:1.333;stroke-linejoin:round;paint-order:stroke fill markers"
+                 id="rect1"
+                 width="7.5010719"
+                 height="3.7739146"
+                 x="25.029888"
+                 y="-8.7732191" />
+              <rect
+                 style="fill:#202020;fill-opacity:1;stroke:none;stroke-width:1.2403;stroke-linejoin:round;paint-order:stroke fill markers"
+                 id="rect1-3"
+                 width="7.5010719"
+                 height="3.2672937"
+                 x="25.029888"
+                 y="-1.0038326" />
+              <rect
+                 style="fill:#202020;fill-opacity:1;stroke:none;stroke-width:1.06037;stroke-linejoin:round;paint-order:stroke fill markers"
+                 id="rect1-3-7"
+                 width="4.2469597"
+                 height="4.2178607"
+                 x="28.284"
+                 y="-5.064055" />
+            </g>
+            <rect
+               style="fill:#202020;fill-opacity:1;stroke:none;stroke-width:0.682143;stroke-linejoin:round;paint-order:stroke fill markers"
+               id="rect1-3-6"
+               width="1.7108713"
+               height="4.3330131"
+               x="0"
+               y="-5.1897302" />
+          </g>
+          <rect
+             style="fill:#202020;fill-opacity:1;stroke:none;stroke-width:1.06037;stroke-linejoin:round;paint-order:stroke fill markers"
+             id="rect1-3-7-5"
+             width="4.2469597"
+             height="4.2178607"
+             x="21.652836"
+             y="9.2825165" />
+          <rect
+             style="fill:#202020;fill-opacity:1;stroke:none;stroke-width:1.06037;stroke-linejoin:round;paint-order:stroke fill markers"
+             id="rect1-3-7-5-3"
+             width="4.2469597"
+             height="4.2178607"
+             x="21.32144"
+             y="3.3442755" />
+        </g>
+      </g>
+    </pattern>
+    <linearGradient
+       id="b"
+       x1="-39.605"
+       x2="-39.605"
+       y1="58.247002"
+       y2="6.9879999"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,18.135335,-0.41804136)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#383838"
+         id="stop2" />
+      <stop
+         offset="1"
+         stop-color="#616161"
+         id="stop3" />
+    </linearGradient>
+    <filter
+       id="a"
+       width="1.07776"
+       height="1.07776"
+       x="-0.03888"
+       y="-0.03888"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         stdDeviation=".972"
+         id="feGaussianBlur2" />
+    </filter>
+    <filter
+       id="e"
+       width="1.0593724"
+       height="1.0593724"
+       x="-0.029686204"
+       y="-0.029686204"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         stdDeviation=".298"
+         id="feGaussianBlur2-5" />
+    </filter>
+    <filter
+       id="d"
+       width="1.0277279"
+       height="1.0277284"
+       x="-0.013863949"
+       y="-0.013864218"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         stdDeviation=".298"
+         id="feGaussianBlur1" />
+    </filter>
+    <linearGradient
+       id="c"
+       x1="7.9369998"
+       x2="7.9369998"
+       y1="15.081"
+       y2="1.852"
+       gradientTransform="matrix(1.8028774,0,0,1.2404403,47.756028,-3.6316576)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#767574"
+         id="stop3-6" />
+      <stop
+         offset="1"
+         stop-color="#d1e7ee"
+         id="stop4" />
+    </linearGradient>
+    <filter
+       id="b-2"
+       width="1.096"
+       height="1.096"
+       x="-0.048000002"
+       y="-0.048000002"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         stdDeviation="1.2"
+         id="feGaussianBlur3" />
+    </filter>
+    <filter
+       id="f"
+       width="1.0593724"
+       height="1.0593724"
+       x="-0.029686204"
+       y="-0.029686204"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         stdDeviation=".298"
+         id="feGaussianBlur4" />
+    </filter>
+    <filter
+       id="f-5"
+       width="1.0593724"
+       height="1.0593724"
+       x="-0.029686204"
+       y="-0.029686204"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         stdDeviation=".298"
+         id="feGaussianBlur4-6" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g7"
+       transform="matrix(0.55467951,0,0,0.80618079,-5.5711045,1.0701298)">
+      <g
+         id="g6">
+        <circle
+           cx="32"
+           cy="32.880001"
+           r="30"
+           filter="url(#b)"
+           opacity="0.25"
+           id="circle4-1"
+           style="filter:url(#b-2)"
+           transform="matrix(0.47700217,0,0,0.32819355,9.1183749,-2.0005357)" />
+        <ellipse
+           cx="24.382442"
+           cy="8.5016575"
+           fill="url(#c)"
+           id="circle5"
+           style="fill:url(#c);stroke-width:0.395663"
+           rx="14.310065"
+           ry="9.8458061" />
+        <ellipse
+           cx="24.382442"
+           cy="8.5016575"
+           fill="url(#a)"
+           id="circle6"
+           rx="14.310065"
+           ry="9.8458061"
+           style="stroke-width:0.395663" />
+        <path
+           fill="#ffffff"
+           d="m 10.787,10.787 a 29.934,29.934 0 0 0 0,42.426 c 0.119,0.119 0.242,0.23 0.362,0.345 C -0.251,41.783 -0.139,23.128 11.494,11.493 23.127,-0.142 41.784,-0.25 53.56,11.148 53.444,11.028 53.333,10.905 53.215,10.786 a 29.934,29.934 0 0 0 -42.426,0 z"
+           filter="url(#d)"
+           opacity="0.55"
+           id="path9"
+           transform="matrix(0.47700217,0,0,0.32819355,9.1183749,-2.0005357)" />
+        <path
+           fill="#ffffff"
+           d="m 37.435,61.526 c 5.772,-1.063 11.297,-3.831 15.779,-8.313 4.482,-4.482 7.25,-10.007 8.313,-15.779 -1.592,5.434 -4.606,10.657 -9.02,15.072 -4.414,4.415 -9.639,7.428 -15.072,9.02"
+           filter="url(#e)"
+           opacity="0.38"
+           id="path10"
+           transform="matrix(0.47700217,0,0,0.32819355,9.1183749,-2.0005357)" />
+      </g>
+    </g>
+    <circle
+       cx="32"
+       cy="32"
+       r="30"
+       filter="url(#a)"
+       opacity="0.15"
+       style="isolation:isolate;paint-order:stroke fill markers"
+       id="circle3"
+       transform="matrix(0.26458333,0,0,0.26458333,0.08805336,0.08805336)" />
+    <circle
+       cx="7.9375"
+       cy="7.9375"
+       fill="url(#b)"
+       style="isolation:isolate;fill:url(#b);stroke-width:0.264583;paint-order:stroke fill markers"
+       id="circle4"
+       r="7.9375" />
+    <path
+       id="rect5"
+       style="fill:none;stroke-width:0.944815"
+       d="M 1.3947485,1.0310522 H 14.605251 V 14.968948 H 1.3947485 Z" />
+    <g
+       id="g14"
+       transform="matrix(0.53667099,0,0,0.53667099,-5.1304979,3.3460124)">
+      <g
+         id="g8"
+         transform="matrix(1.5139177,0,0,1.7418772,-12.638693,-8.0921965)"
+         style="fill:#cccccc">
+        <rect
+           style="fill:#cccccc;fill-opacity:1;stroke-width:0.298618"
+           id="rect2"
+           width="7.0252552"
+           height="9.8258162"
+           x="20.996803"
+           y="4.7112799"
+           ry="0.89792049" />
+      </g>
+    </g>
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke-width:0.264583"
+       id="rect3"
+       width="1.6068313"
+       height="1.4869186"
+       x="5.6598835"
+       y="7.1228194"
+       ry="0.64752901"
+       rx="0.14389534" />
+    <path
+       fill="#ffffff"
+       d="m 37.435,61.526 c 5.772,-1.063 11.297,-3.831 15.779,-8.313 4.482,-4.482 7.25,-10.007 8.313,-15.779 -1.592,5.434 -4.606,10.657 -9.02,15.072 -4.414,4.415 -9.639,7.428 -15.072,9.02"
+       filter="url(#f)"
+       opacity="0.15"
+       transform="matrix(0.26458521,0,0,0.26458521,-0.47452806,-0.53065861)"
+       id="path12" />
+    <path
+       fill="#ffffff"
+       d="m 37.435,61.526 c 5.772,-1.063 11.297,-3.831 15.779,-8.313 4.482,-4.482 7.25,-10.007 8.313,-15.779 -1.592,5.434 -4.606,10.657 -9.02,15.072 -4.414,4.415 -9.639,7.428 -15.072,9.02"
+       filter="url(#f)"
+       opacity="0.15"
+       transform="matrix(-0.252963,0.07755677,-0.07755677,-0.252963,18.445766,13.598132)"
+       id="path12-9"
+       style="filter:url(#f-5)" />
+  </g>
+</svg>
