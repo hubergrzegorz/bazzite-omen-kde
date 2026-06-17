@@ -1,4 +1,3 @@
----
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
 name: bazzite-omen-kde
@@ -17,12 +16,20 @@ modules:
       - source: system
         destination: /
 
+  # TUTAJ: Dodano ONLYOFFICE do instalacji Flatpak
   - type: default-flatpaks
     configurations:
       - notify: true
         scope: system
         install:
           - com.heroicgameslauncher.hgl
+          - org.onlyoffice.desktopeditors
+
+  # TUTAJ: Nowy moduł, który usuwa wbudowanego Firefoksa
+  - type: rpm-ostree
+    remove:
+      - firefox
+      - firefox-langpacks
 
   - type: dnf
     install:
