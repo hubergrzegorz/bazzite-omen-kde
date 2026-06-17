@@ -1,35 +1,23 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<name>
+# yaml-language-server: $schema=https://blue-build.org
 name: bazzite-omen-kde
-# description will be included in the image's metadata
 description: This is my personal OS image.
 
-# the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/bazzite-nvidia-open
 image-version: testing
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
   - type: files
     files:
       - source: system
         destination: /
 
-  # TUTAJ: Dodano ONLYOFFICE do instalacji Flatpak
   - type: default-flatpaks
     configurations:
       - notify: true
         scope: system
         install:
           - com.heroicgameslauncher.hgl
-          - org.onlyoffice.desktopeditors
-
-  # TUTAJ: Nowy moduł, który usuwa wbudowanego Firefoksa
-  - type: rpm-ostree
-    remove:
-      - firefox
-      - firefox-langpacks
+          - org.onlyoffice.desktopeditors # Dodano ONLYOFFICE
 
   - type: dnf
     install:
