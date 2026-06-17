@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=HP OMEN RGB
+Comment=Konfiguracja podświetlenia klawiatury HP OMEN
+Exec=omen-gui
+Icon=input-keyboard
+Terminal=false
+Type=Application
+Categories=Settings;System;
+StartupNotify=true
