@@ -11,7 +11,7 @@ modules:
       - mkdir -p /opt/virtualbox-kvm
       - curl -L \
           -o /opt/virtualbox-kvm/VirtualBox-KVM.AppImage \
-          "TU_WKLEJ_BEZPOŚREDNI_LINK_DO_APPIMAGE"
+          "https://github.com/ivan-hc/VirtualBox-appimage"
       - chmod +x /opt/virtualbox-kvm/VirtualBox-KVM.AppImage
   - type: files
     files:
