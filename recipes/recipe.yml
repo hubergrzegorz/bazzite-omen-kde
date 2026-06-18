@@ -12,11 +12,6 @@ modules:
       - curl -L -o /opt/virtualbox-kvm/VirtualBox-KVM.AppImage https://github.com/ivan-hc/VirtualBox-appimage/releases/latest/download/VirtualBox-KVM-x86_64.AppImage
       - chmod 755 /opt/virtualbox-kvm/VirtualBox-KVM.AppImage
 
-  - type: files
-    files:
-      - source: system
-        destination: /
-
   - type: default-flatpaks
     configurations:
       - notify: true
