@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://blue-build.org
 name: bazzite-omen-kde
-description: Clean Bazzite KDE image with COPR/RPM Brave
+description: Clean Bazzite KDE image with Brave + Darkly COPR
 
 base-image: ghcr.io/ublue-os/bazzite-nvidia-open
 image-version: testing
@@ -8,22 +8,25 @@ image-version: testing
 modules:
 
   # =========================
-  # 1. REPOS + SYSTEM SETUP
+  # 1. REPOSITORIES (CRITICAL)
   # =========================
   - type: script
     snippets:
-      # Brave repo (RPM)
+      # Brave repo
       - curl -fsSL https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo \
           -o /etc/yum.repos.d/brave-browser.repo
 
-      # GPG key (important for DNF trust)
       - rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-      # VirtualBox AppImage (safe in /opt)
-      - mkdir -p /opt/virtualbox-kvm
-      - curl -L -o /opt/virtualbox-kvm/VirtualBox-KVM.AppImage \
-          https://github.com/ivan-hc/VirtualBox-appimage/releases/latest/download/VirtualBox-KVM-x86_64.AppImage
-      - chmod +x /opt/virtualbox-kvm/VirtualBox-KVM.AppImage
+      # Darkly COPR repo
+      - curl -fsSL https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/fedora-$(rpm -E %fedora)-$(uname -m)/repodata/repomd.xml \
+          >/dev/null || true
+
+      - curl -fsSL https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/pubkey.gpg \
+          -o /etc/pki/rpm-gpg/darkly.gpg
+
+      - curl -fsSL https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/deltacopy-darkly.repo \
+          -o /etc/yum.repos.d/darkly.repo
 
 
   # =========================
@@ -32,17 +35,15 @@ modules:
   - type: dnf
     install:
       packages:
-        # core dev tools
+        # core tools
         - git
         - gcc
         - make
+        - mc
 
         # kernel tooling
         - dkms
         - kernel-devel
-
-        # utilities
-        - mc
 
         # audio
         - easyeffects
@@ -52,15 +53,16 @@ modules:
         - python3-pyside6
         - python3-tkinter
 
-        # brave from RPM repo (NOT flatpak)
+        # apps from COPR/RPM repos
         - brave-browser
+        - darkly
 
-        # kde theme
+        # KDE base theme safety
         - kde-style-breeze
 
 
   # =========================
-  # 3. FLATPAKS (ONLY APPS)
+  # 3. FLATPAKS
   # =========================
   - type: default-flatpaks
     configurations:
