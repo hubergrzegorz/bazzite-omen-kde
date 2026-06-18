@@ -1,78 +1,52 @@
-# yaml-language-server: $schema=https://blue-build.org
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
 name: bazzite-omen-kde
-description: PRO stable Bazzite KDE image (no fragile scripts)
+description: This is my personal OS image.
 
 base-image: ghcr.io/ublue-os/bazzite-nvidia-open
 image-version: testing
 
 modules:
 
-  # ==================================================
-  # 1. SYSTEM REPOS (NO CURL, NO BASH LOGIC)
-  # ==================================================
+  # =========================
+  # COPY FILES INTO SYSTEM
+  # =========================
   - type: files
     files:
+      - source: system
+        destination: /
 
-      # Brave repo
-      - source: repos/brave.repo
-        destination: /etc/yum.repos.d/brave.repo
-
-      - source: repos/brave.asc
-        destination: /etc/pki/rpm-gpg/brave.asc
-
-      # Darkly COPR repo
-      - source: repos/darkly.repo
-        destination: /etc/yum.repos.d/darkly.repo
-
-      - source: repos/darkly.asc
-        destination: /etc/pki/rpm-gpg/darkly.asc
-
-
-  # ==================================================
-  # 2. SYSTEM PACKAGES (CLEAN DNF ONLY)
-  # ==================================================
-  - type: dnf
-    install:
-      packages:
-        # core tools
-        - git
-        - gcc
-        - make
-        - mc
-
-        # kernel tooling (optional but common in your setup)
-        - dkms
-        - kernel-devel
-
-        # audio
-        - easyeffects
-
-        # python GUI stack
-        - python3-pyqt6
-        - python3-pyside6
-        - python3-tkinter
-
-        # COPR/RPM apps
-        - brave-browser
-        - darkly
-
-        # KDE baseline theme safety
-        - kde-style-breeze
-
-
-  # ==================================================
-  # 3. FLATPAK (GUI APPS ONLY)
-  # ==================================================
+  # =========================
+  # FLATPAKS
+  # =========================
   - type: default-flatpaks
     configurations:
-      - scope: system
-        notify: true
+      - notify: true
+        scope: system
         install:
           - com.heroicgameslauncher.hgl
           - org.onlyoffice.desktopeditors
 
+  # =========================
+  # DNF PACKAGES (YOUR BASE)
+  # =========================
+  - type: dnf
+    install:
+      packages:
+        - easyeffects
+        - git
+        - gcc
+        - make
+        - dkms
+        - kernel-devel
+        - mc
+        - python3-pyqt6
+        - python3-pyside6
+        - python3-tkinter
+        - brave-browser
+        - darkly
 
-  # ==================================================
-  # 4. SIGNING (REQUIRED)
-  # ==================================================
+  # =========================
+  # SIGNING (REQUIRED)
+  # =========================
   - type: signing
