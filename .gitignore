@@ -3,3 +3,4 @@ cosign.private
 /Containerfile
 files/system/etc/skel/*.tar.gz
 files/system/opt/virtualbox-kvm/*.AppImage
+files/system/opt/virtualbox-kvm/*.AppImage

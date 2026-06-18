@@ -9,10 +9,9 @@ modules:
   - type: script
     snippets:
       - mkdir -p /opt/virtualbox-kvm
-      - curl -L \
-          -o /opt/virtualbox-kvm/VirtualBox-KVM.AppImage \
-          "https://github.com/ivan-hc/VirtualBox-appimage"
-      - chmod +x /opt/virtualbox-kvm/VirtualBox-KVM.AppImage
+      - curl -L -o /opt/virtualbox-kvm/VirtualBox-KVM.AppImage https://github.com/ivan-hc/VirtualBox-appimage/releases/latest/download/VirtualBox-KVM-x86_64.AppImage
+      - chmod 755 /opt/virtualbox-kvm/VirtualBox-KVM.AppImage
+
   - type: files
     files:
       - source: system
@@ -24,7 +23,7 @@ modules:
         scope: system
         install:
           - com.heroicgameslauncher.hgl
-          - org.onlyoffice.desktopeditors # Dodano ONLYOFFICE
+          - org.onlyoffice.desktopeditors
 
   - type: dnf
     install:
