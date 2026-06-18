@@ -1,79 +1,43 @@
-# yaml-language-server: $schema=https://blue-build.org
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
 name: bazzite-omen-kde
-description: Clean Bazzite KDE image with Brave + Darkly COPR
+# description will be included in the image's metadata
+description: This is my personal OS image.
 
+# the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/bazzite-nvidia-open
 image-version: testing
 
+# module configuration, executed in order
+# you can include multiple instances of the same module
 modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
 
-  # =========================
-  # 1. REPOSITORIES (CRITICAL)
-  # =========================
-  - type: script
-    snippets:
-      # Brave repo
-      - curl -fsSL https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo \
-          -o /etc/yum.repos.d/brave-browser.repo
-
-      - rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-
-      # Darkly COPR repo
-      - curl -fsSL https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/fedora-$(rpm -E %fedora)-$(uname -m)/repodata/repomd.xml \
-          >/dev/null || true
-
-      - curl -fsSL https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/pubkey.gpg \
-          -o /etc/pki/rpm-gpg/darkly.gpg
-
-      - curl -fsSL https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/deltacopy-darkly.repo \
-          -o /etc/yum.repos.d/darkly.repo
-
-
-  # =========================
-  # 2. SYSTEM PACKAGES (DNF)
-  # =========================
-  - type: dnf
-    install:
-      packages:
-        # core tools
-        - git
-        - gcc
-        - make
-        - mc
-
-        # kernel tooling
-        - dkms
-        - kernel-devel
-
-        # audio
-        - easyeffects
-
-        # python GUI stack
-        - python3-pyqt6
-        - python3-pyside6
-        - python3-tkinter
-
-        # apps from COPR/RPM repos
-        - brave-browser
-        - darkly
-
-        # KDE base theme safety
-        - kde-style-breeze
-
-
-  # =========================
-  # 3. FLATPAKS
-  # =========================
   - type: default-flatpaks
     configurations:
-      - scope: system
-        notify: true
+      - notify: true
+        scope: system
         install:
           - com.heroicgameslauncher.hgl
           - org.onlyoffice.desktopeditors
+  - type: dnf
+    install:
+      packages:
+        - easyeffects
+        - git
+        - gcc
+        - make
+        - dkms
+        - kernel-devel
+        - mc
+        - python3-pyqt6
+        - python3-pyside6
+        - python3-tkinter
+        - brave-browser
+        - darkly
 
-
-  # =========================
-  # 4. SIGNING
-  # =========================
   - type: signing
