@@ -8,22 +8,6 @@ image-version: testing
 
 modules:
 
-  - type: script
-    snippets:
-      # Brave repo
-      - curl -fsSL https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo \
-          -o /etc/yum.repos.d/brave.repo
-
-      - rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-
-      # Darkly repo
-      - curl -fsSL https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/deltacopy-darkly.repo \
-          -o /etc/yum.repos.d/darkly.repo
-
-      # ❌ WAŻNE: NIE DODAJEMY TEGO:
-      # rpm --import https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/pubkey.gpg
-
-
   - type: files
     files:
       - source: system
