@@ -1,11 +1,8 @@
 [copr:copr.fedorainfracloud.org:deltacopy:darkly]
-name=Copr repo for darkly owned by deltacopy
+name=Copr repo for darkly
 baseurl=https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/fedora-$releasever-$basearch/
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://download.copr.fedorainfracloud.org/results/deltacopy/darkly/pubkey.gpg
-repo_gpgcheck=0
 enabled=1
-enabled_metadata=1
-
+type=rpm-md
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/darkly.asc
+repo_gpgcheck=0
