@@ -6,6 +6,13 @@ base-image: ghcr.io/ublue-os/bazzite-nvidia-open
 image-version: testing
 
 modules:
+  - type: script
+    snippets:
+      - mkdir -p /opt/virtualbox-kvm
+      - curl -L \
+          -o /opt/virtualbox-kvm/VirtualBox-KVM.AppImage \
+          "TU_WKLEJ_BEZPOŚREDNI_LINK_DO_APPIMAGE"
+      - chmod +x /opt/virtualbox-kvm/VirtualBox-KVM.AppImage
   - type: files
     files:
       - source: system
