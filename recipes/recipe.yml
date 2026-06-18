@@ -36,5 +36,6 @@ modules:
         - python3-tkinter
         - brave-browser
         - darkly
+        - kwin-effects-better-blur-dx
 
   - type: signing

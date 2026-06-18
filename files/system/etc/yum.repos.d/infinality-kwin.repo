@@ -1,0 +1,7 @@
+[infinality-kwin-effects-better-blur-dx]
+name=COPR kwin better blur
+baseurl=https://download.copr.fedorainfracloud.org/results/infinality/kwin-effects-better-blur-dx/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=0
+enabled=1
