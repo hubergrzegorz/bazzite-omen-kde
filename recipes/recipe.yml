@@ -1,39 +1,77 @@
 # yaml-language-server: $schema=https://blue-build.org
 name: bazzite-omen-kde
-description: This is my personal OS image.
+description: Clean Bazzite KDE image with COPR/RPM Brave
 
 base-image: ghcr.io/ublue-os/bazzite-nvidia-open
 image-version: testing
 
 modules:
+
+  # =========================
+  # 1. REPOS + SYSTEM SETUP
+  # =========================
   - type: script
     snippets:
-      - mkdir -p /opt/virtualbox-kvm
-      - curl -L -o /opt/virtualbox-kvm/VirtualBox-KVM.AppImage https://github.com/ivan-hc/VirtualBox-appimage/releases/latest/download/VirtualBox-KVM-x86_64.AppImage
-      - chmod 755 /opt/virtualbox-kvm/VirtualBox-KVM.AppImage
+      # Brave repo (RPM)
+      - curl -fsSL https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo \
+          -o /etc/yum.repos.d/brave-browser.repo
 
+      # GPG key (important for DNF trust)
+      - rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+      # VirtualBox AppImage (safe in /opt)
+      - mkdir -p /opt/virtualbox-kvm
+      - curl -L -o /opt/virtualbox-kvm/VirtualBox-KVM.AppImage \
+          https://github.com/ivan-hc/VirtualBox-appimage/releases/latest/download/VirtualBox-KVM-x86_64.AppImage
+      - chmod +x /opt/virtualbox-kvm/VirtualBox-KVM.AppImage
+
+
+  # =========================
+  # 2. SYSTEM PACKAGES (DNF)
+  # =========================
+  - type: dnf
+    install:
+      packages:
+        # core dev tools
+        - git
+        - gcc
+        - make
+
+        # kernel tooling
+        - dkms
+        - kernel-devel
+
+        # utilities
+        - mc
+
+        # audio
+        - easyeffects
+
+        # python GUI stack
+        - python3-pyqt6
+        - python3-pyside6
+        - python3-tkinter
+
+        # brave from RPM repo (NOT flatpak)
+        - brave-browser
+
+        # kde theme
+        - kde-style-breeze
+
+
+  # =========================
+  # 3. FLATPAKS (ONLY APPS)
+  # =========================
   - type: default-flatpaks
     configurations:
-      - notify: true
-        scope: system
+      - scope: system
+        notify: true
         install:
           - com.heroicgameslauncher.hgl
           - org.onlyoffice.desktopeditors
 
-  - type: dnf
-    install:
-      packages:
-        - easyeffects
-        - git
-        - gcc
-        - make
-        - dkms
-        - kernel-devel
-        - mc
-        - python3-pyqt6
-        - python3-pyside6
-        - python3-tkinter
-        - brave-browser
-        - darkly
 
+  # =========================
+  # 4. SIGNING
+  # =========================
   - type: signing
