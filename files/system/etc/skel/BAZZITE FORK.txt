@@ -3,7 +3,7 @@
 
 - Base image: `ghcr.io/ublue-os/bazzite-nvidia-open:testing`
 - Desktop: KDE Plasma
-- Sterowniki: NVIDIA Open Kernel Modules
+- Sterowniki: NVIDIA Open Kernel Modules - tylko nowe karty graficzne
 - Aktualizacje atomowe: `rpm-ostree`
 
 ---
