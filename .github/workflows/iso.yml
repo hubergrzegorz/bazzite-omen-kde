@@ -2,24 +2,25 @@ name: build-iso
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["bluebuild"]
-    types:
-      - completed
 
 jobs:
   iso:
     runs-on: ubuntu-latest
 
-    container:
-      image: ghcr.io/ublue-os/isogenerator:latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
-      - name: Generate ISO
-        run: |
-          /usr/bin/generate-iso \
-            --image-name ghcr.io/hubergrzegorz/bazzite-omen-kde \
-            --image-tag latest
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build ISO (BlueBuild)
+        uses: blue-build/github-action@v1.11
+        with:
+          recipe: recipe.yml
+          iso: true
+          registry_token: ${{ github.token }}
 
       - name: Upload ISO
         uses: actions/upload-artifact@v4
