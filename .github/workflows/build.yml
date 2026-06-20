@@ -17,6 +17,7 @@ jobs:
   bluebuild:
     name: Build Custom Image
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
       packages: write
@@ -29,12 +30,12 @@ jobs:
           - recipe.yml
 
     steps:
-      - name: Build Custom Image
+      - name: Build Image
         uses: blue-build/github-action@v1.11
         with:
           recipe: ${{ matrix.recipe }}
-          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
+          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
 
@@ -48,15 +49,16 @@ jobs:
       contents: read
       packages: read
 
-    container:
-      image: ghcr.io/ublue-os/isogenerator:latest
-
     steps:
-      - name: Generate ISO
-        run: |
-          /usr/bin/generate-iso \
-            --image-name ghcr.io/hubergrzegorz/bazzite-omen-kde \
-            --image-tag latest
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Build ISO
+        uses: blue-build/github-action@v1.11
+        with:
+          recipe: recipe.yml
+          iso: true
+          registry_token: ${{ github.token }}
 
       - name: Upload ISO
         uses: actions/upload-artifact@v4
