@@ -1,0 +1,9 @@
+Sterownik musi być kompatybilny z Twoim sprzętem
+
+Sterownik oraz lista kompatybilnych urządzeń https://github.com/OmenLinux/omen-rgb-keyboard
+
+Po pierwszym uruchamieniu systemu wykonaj komendę w terminalu:
+
+- sudo omen-installer
+
+

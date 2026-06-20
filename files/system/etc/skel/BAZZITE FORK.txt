@@ -1,0 +1,138 @@
+
+## Baza systemu
+
+- Base image: `ghcr.io/ublue-os/bazzite-nvidia-open:testing`
+- Desktop: KDE Plasma
+- Sterowniki: NVIDIA Open Kernel Modules
+- Aktualizacje atomowe: `rpm-ostree`
+
+---
+
+## Dodane repozytoria
+
+### Brave Browser
+
+Oficjalne repozytorium RPM:
+
+- Repo: `brave.repo`
+- Klucz GPG: `brave-core.asc`
+
+Źródło:
+
+- https://brave.com/linux/
+
+### Darkly
+
+Repozytorium COPR:
+
+- COPR: `deltacopy/darkly`
+
+Źródło:
+
+- https://copr.fedorainfracloud.org/coprs/deltacopy/darkly/
+
+### Better Blur DX
+
+Repozytorium COPR:
+
+- COPR: `infinality/kwin-effects-better-blur-dx`
+
+Źródło:
+
+- https://copr.fedorainfracloud.org/coprs/infinality/kwin-effects-better-blur-dx/
+
+---
+
+## Instalowane pakiety RPM
+
+- easyeffects
+- git
+- gcc
+- make
+- dkms
+- kernel-devel
+- mc
+- python3-pyqt6
+- python3-pyside6
+- python3-tkinter
+- brave-browser
+- darkly
+- kwin-effects-better-blur-dx
+
+---
+
+## Instalowane Flatpaki
+
+Instalowane systemowo:
+
+- `com.heroicgameslauncher.hgl`
+- `org.onlyoffice.desktopeditors`
+
+---
+
+## Autorskie modyfikacje
+
+Dodana tapeta - Rajska Plaża
+Dodany motyw jasny/ciemny dla KDE PLASMA
+Dodane ikony Pure Adwaita
+
+ZNANY BŁĄD: Zaraz po uruchomieniu nie ładują się wszystkie ikony (przyczyna nieznana)
+Aby naprawić błąd należy wejść w ustawienia i pobrać ponownie motyw ikon Pure Adwaita.
+---
+
+## Autorskie skrypty (są to moje projekty dostosowane do Bazzite. Ze względu na specyfikę systemu nie zadziałają w żadnym innym systemie)
+
+### KDE Theme Manager
+
+Funkcje:
+
+- tworzenie kopii zapasowych ustawień KDE
+- przywracanie motywów
+- obsługa Darkly, Klassy i Kvantum
+- harmonogram kopii przez systemd user timer
+- automatyczne usuwanie starych kopii
+
+Domyślny katalog kopii:
+
+~/.kde_theme_backups
+
+W katalogu domowym przykładowy zastosowany motyw KDE theme.tar.gz
+
+### HP OMEN KEYBOARD
+
+Dla użytkowników laptopów z serii OMEN do zarządzania podświetleniem klawiatury RGB
+
+Funkcje:
+
+- zczytywanie obecnej konfiguracji
+- zmiana podświetlenia 4 stref klawiatury
+- zmiana jasności podświetlenia
+- 12 trybów (w tym integracja z NVIDIA zmienająca kolor klawiatury zależnie od temperatury GPU)
+- losowe generowanie kolorów
+- import/eksport presetów
+---
+
+## Aliasy
+
+Dodano Aliasy
+
+- restart - uruchami system ponownie, zamiast systemctl reboot
+- status - zamiast rpm-ostree status
+- changelog - pokazuje dokonane zmiany w obrazach po aktualizacji systemu lub instalacji pakietów
+---
+
+## Aktualizacje
+
+Aktualizacje systemu są dostarczane przez:
+
+- Bazzite
+- BlueBuild
+- RPM Fusion
+- repozytoria COPR
+- repozytorium Brave
+
+---
+
+## Repozytorium
+
+https://github.com/hubergrzegorz/bazzite-omen-kde
