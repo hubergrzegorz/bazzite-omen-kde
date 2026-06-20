@@ -1,0 +1,28 @@
+name: build-iso
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["bluebuild"]
+    types:
+      - completed
+
+jobs:
+  iso:
+    runs-on: ubuntu-latest
+
+    container:
+      image: ghcr.io/ublue-os/isogenerator:latest
+
+    steps:
+      - name: Generate ISO
+        run: |
+          /usr/bin/generate-iso \
+            --image-name ghcr.io/hubergrzegorz/bazzite-omen-kde \
+            --image-tag latest
+
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: iso
+          path: "*.iso"
