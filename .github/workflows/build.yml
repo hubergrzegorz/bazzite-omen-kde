@@ -35,38 +35,8 @@ jobs:
     steps:
       - name: Build Custom Image
         uses: blue-build/github-action@v1.11
-        env:
-          BUILD_OPTS: "--no-sign"
         with:
           recipe: ${{ matrix.recipe }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
-
-  iso:
-    name: Build ISO
-    runs-on: ubuntu-latest
-    needs: bluebuild
-
-    permissions:
-      contents: read
-      packages: read
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Build ISO
-        uses: blue-build/github-action@v1.11
-        env:
-          BUILD_OPTS: "--no-sign"
-        with:
-          recipe: recipe.yml
-          registry_token: ${{ github.token }}
-          iso: true
-
-      - name: Upload ISO
-        uses: actions/upload-artifact@v4
-        with:
-          name: iso
-          path: "*.iso"
