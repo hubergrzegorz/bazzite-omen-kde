@@ -273,6 +273,10 @@ toggle do not disturb=,,Przestaw "nie przeszkadzać"
 [services][org.kde.plasma-systemmonitor.desktop]
 _launch=DOS
 
+[services][org.kde.spectacle.desktop]
+CurrentMonitorScreenShot=
+OpenWithoutScreenshot=
+
 [us.materialio.Materialious]
 9EA14E7285D06A6E09243F4CE70C5090-Ctrl+Shift+I=,none,Electron shortcut Ctrl+Shift+I
 _k_friendly_name=Materialious

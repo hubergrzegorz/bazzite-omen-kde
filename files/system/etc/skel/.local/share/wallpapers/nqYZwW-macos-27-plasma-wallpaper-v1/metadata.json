@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Id": "com.github.gabors0.macos27plasma",
+    "Name": "Golden Gate Dynamic",
+    "Description": "The new macOS 27 wallpapers for Plasma",
+    "License": "GPL-3.0-only",
+    "Authors": [
+      {
+        "Name": "gabors0",
+        "Email": "gabors0@proton.me"
+      }
+    ]
+  },
+  "X-KDE-CrossFade": true
+}

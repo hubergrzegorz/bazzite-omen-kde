@@ -76,8 +76,6 @@ Dodana tapeta - Rajska Plaża
 Dodany motyw jasny/ciemny dla KDE PLASMA
 Dodane ikony Pure Adwaita
 
-ZNANY BŁĄD: Zaraz po uruchomieniu nie ładują się wszystkie ikony (przyczyna nieznana)
-Aby naprawić błąd należy wejść w ustawienia i pobrać ponownie motyw ikon Pure Adwaita.
 ---
 
 ## Autorskie skrypty (są to moje projekty dostosowane do Bazzite. Ze względu na specyfikę systemu nie zadziałają w żadnym innym systemie)
@@ -95,8 +93,6 @@ Funkcje:
 Domyślny katalog kopii:
 
 ~/.kde_theme_backups
-
-W katalogu domowym przykładowy zastosowany motyw KDE theme.tar.gz
 
 ### HP OMEN KEYBOARD
 
