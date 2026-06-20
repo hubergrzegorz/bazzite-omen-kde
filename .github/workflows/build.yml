@@ -3,10 +3,13 @@ name: bluebuild
 on:
   schedule:
     - cron: "00 06 * * *"
+
   push:
     paths-ignore:
       - "**.md"
+
   pull_request:
+
   workflow_dispatch:
 
 concurrency:
@@ -30,15 +33,15 @@ jobs:
           - recipe.yml
 
     steps:
-      - name: Build Image
+      - name: Build Custom Image
         uses: blue-build/github-action@v1.11
+        env:
+          BUILD_OPTS: "--no-sign"
         with:
           recipe: ${{ matrix.recipe }}
           registry_token: ${{ github.token }}
-          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
-
 
   iso:
     name: Build ISO
@@ -50,15 +53,17 @@ jobs:
       packages: read
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Build ISO
         uses: blue-build/github-action@v1.11
+        env:
+          BUILD_OPTS: "--no-sign"
         with:
           recipe: recipe.yml
-          iso: true
           registry_token: ${{ github.token }}
+          iso: true
 
       - name: Upload ISO
         uses: actions/upload-artifact@v4
