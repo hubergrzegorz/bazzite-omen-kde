@@ -5,7 +5,7 @@ cursorTheme=breeze_cursors
 ColorScheme=BreezeLight
 
 [kdeglobals][Icons]
-Theme=Pure-Light
+Theme=Pure-Adwaita
 
 [kdeglobals][KDE]
 widgetStyle=Darkly
