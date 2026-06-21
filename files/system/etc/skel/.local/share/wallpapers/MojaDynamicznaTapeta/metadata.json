@@ -1,7 +1,0 @@
-{
-    "KPlugin": {
-        "Id": "MojaDynamicznaTapeta",
-        "Name": "Rajska Plaża Dynamiczna",
-        "ServiceTypes": ["Plasma/Wallpaper"]
-    }
-}

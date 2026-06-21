@@ -1,0 +1,13 @@
+Aby zastosować motyw, uruchom:
+
+KDE THEME BACKUP MANAGER
+
+Naciśnij:
+
+1) Naciśnij Otwórz folder w dolphinie w celu utworzenia folderu dla kopii.
+
+2) Naciśnij utwórz kopie teraz, aby zrobić kopie obecnych ustawień
+
+3) Naciśnij Przywróć motyw - wybierz dołączony theme.tar.gz aby zastosować nowoczesny wygląd KDE
+
+4) Po zakończeniu konfiguracji pojawi się komunikat o konieczności ponownego uruchomienia plazmy. Wystarczy zalogować się ponownie.
