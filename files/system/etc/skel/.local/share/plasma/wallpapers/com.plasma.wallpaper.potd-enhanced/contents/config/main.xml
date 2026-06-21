@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name=""/>
+
+  <group name="General">
+    <entry name="Provider" type="String">
+      <label>Image provider (e.g. bing)</label>
+      <default>bing</default>
+    </entry>
+    <entry name="Market" type="String">
+      <label>Market/region locale for daily image</label>
+      <default></default>
+    </entry>
+    <entry name="ShowOverlay" type="bool">
+      <label>Show overlay text on wallpaper</label>
+      <default>true</default>
+    </entry>
+    <entry name="OverlayPosition" type="String">
+      <label>Position of overlay (top-left, top-right, bottom-left, bottom-right)</label>
+      <default>bottom-left</default>
+    </entry>
+    <entry name="RetryRequestCount" type="int">
+      <label>How many times to retry request when it fails</label>
+      <default>3</default>
+    </entry>
+    <entry name="RetryRequestDelay" type="int">
+      <label>How much time in seconds between request retries</label>
+      <default>5</default>
+    </entry>
+    <entry name="RefetchSignal" type="bool">
+      <label>Signal to trigger refetch from config page</label>
+      <default>false</default>
+    </entry>
+    <entry name="currentWallpaperThumbnail" type="String">
+      <label>Small wallpaper preview</label>
+      <default></default>
+    </entry>
+    <entry name="lastValidImagePath" type="String">
+      <label>Path to the last valid loaded image</label>
+      <default></default>
+    </entry>
+    <entry name="LastCopyrightText" type="String">
+      <label>Full copyright text from last loaded image</label>
+      <default></default>
+    </entry>
+    <entry name="LastCopyrightLink" type="String">
+      <label>Copyright link from last loaded image</label>
+      <default></default>
+    </entry>
+    <entry name="LastTitle" type="String">
+      <label>Title from the image provider response</label>
+      <default></default>
+    </entry>
+    <entry name="LastDescription" type="String">
+      <label>Description parsed from the copyright text (before parentheses)</label>
+      <default></default>
+    </entry>
+    <entry name="LastParsedCopyright" type="String">
+      <label>Copyright holder parsed from the copyright text (inside parentheses)</label>
+      <default></default>
+    </entry>
+    <entry name="LastFetchDate" type="String">
+      <label>Date of the last successful wallpaper fetch (YYYY-MM-DD)</label>
+      <default></default>
+    </entry>
+    <entry name="CachedProvider" type="String">
+      <label>Provider that produced the currently cached image</label>
+      <default></default>
+    </entry>
+    <entry name="CachedImageUrl" type="String">
+      <label>Image URL resolved by config preview (used once on Apply, then cleared)</label>
+      <default></default>
+    </entry>
+  </group>
+
+</kcfg>
