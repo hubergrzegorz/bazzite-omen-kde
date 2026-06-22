@@ -18,13 +18,13 @@ modules:
       - notify: true
         scope: system
         install:
+          - com.github.wwmm.easyeffects
           - com.heroicgameslauncher.hgl
           - org.onlyoffice.desktopeditors
 
   - type: dnf
     install:
       packages:
-        - easyeffects
         - git
         - gcc
         - make
