@@ -1,7 +1,7 @@
 
 ## Baza systemu
 
-- Base image: `ghcr.io/ublue-os/bazzite-nvidia-open:testing`
+- Base image: `ghcr.io/ublue-os/bazzite-nvidia-open:stable`
 - Desktop: KDE Plasma
 - Sterowniki: NVIDIA Open Kernel Modules - tylko nowe karty graficzne
 - Aktualizacje atomowe: `rpm-ostree`
@@ -65,8 +65,10 @@ Repozytorium COPR:
 
 Instalowane systemowo:
 
-- `com.heroicgameslauncher.hgl`
-- `org.onlyoffice.desktopeditors`
+- com.github.wwmm.easyeffects
+- com.heroicgameslauncher.hgl
+- org.onlyoffice.desktopeditors
+- page.kramo.Cartridges
 
 ---
 
@@ -75,6 +77,7 @@ Instalowane systemowo:
 Dodana tapeta - Rajska Plaża
 Dodany motyw jasny/ciemny dla KDE PLASMA
 Dodane ikony Pure Adwaita
+Dodano konfigurację Mangohud
 
 ---
 

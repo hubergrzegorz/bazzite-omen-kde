@@ -4,7 +4,7 @@ name: bazzite-omen-kde
 description: This is my personal OS image.
 
 base-image: ghcr.io/ublue-os/bazzite-nvidia-open
-image-version: testing
+image-version: stable
 
 modules:
 
@@ -21,6 +21,7 @@ modules:
           - com.github.wwmm.easyeffects
           - com.heroicgameslauncher.hgl
           - org.onlyoffice.desktopeditors
+          - page.kramo.Cartridges
 
   - type: dnf
     install:
