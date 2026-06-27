@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=First Run Sound
+Exec=/usr/bin/first-run-sound.sh
+X-KDE-autostart-after=panel
+OnlyShowIn=KDE;
+NoDisplay=true

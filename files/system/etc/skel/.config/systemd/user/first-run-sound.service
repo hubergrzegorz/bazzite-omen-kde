@@ -1,0 +1,9 @@
+[Unit]
+Description=First run sound
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/first-run-sound.sh
+
+[Install]
+WantedBy=default.target
