@@ -45,7 +45,6 @@ Repozytorium COPR:
 
 ## Instalowane pakiety RPM
 
-- easyeffects
 - git
 - gcc
 - make
@@ -96,6 +95,8 @@ Funkcje:
 Domyślny katalog kopii:
 
 ~/.kde_theme_backups
+
+Domyślny motyw Bazzite_Omen do pobrania z https://drive.google.com/file/d/1Zs26CvqzQAnf0IfmPysu7-5ZXMvFf4oQ/view?usp=sharing
 
 ### HP OMEN KEYBOARD
 
