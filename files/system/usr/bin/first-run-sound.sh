@@ -7,7 +7,7 @@ if [ -f "$MARKER" ]; then
 fi
 
 # odtwórz 30 sekund MP3
-mpv --no-video --length=60 /usr/share/sounds/first-run.mp3
+ffplay -nodisp -autoexit -t 30 /usr/share/sounds/first-run.mp3 >/dev/null 2>&1
 
 # utwórz marker
 touch "$MARKER"
