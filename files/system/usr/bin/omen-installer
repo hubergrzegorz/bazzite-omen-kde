@@ -14,13 +14,13 @@ for cmd in git gcc make; do
     command -v "$cmd" >/dev/null || { echo "Brak programu: $cmd"; exit 1; }
 done
 
-echo "[2/7] Pobieranie lub aktualizacja repozytorium..."
-if [ -d "$TARGET/.git" ]; then
-    sudo git -C "$TARGET" pull
-else
+echo "[2/7] Pobieranie repozytorium..."
+if [ -d "$TARGET" ]; then
+    echo "Wykryto istniejącą instalację. Usuwanie..."
     sudo rm -rf "$TARGET"
-    sudo git clone "$REPO" "$TARGET"
 fi
+
+sudo git clone "$REPO" "$TARGET"
 
 sudo chown -R "$USER:$USER" "$TARGET"
 
@@ -73,4 +73,3 @@ echo "[7/7] Uruchamianie sterownika..."
 sudo systemctl restart omen-rgb.service || true
 
 echo "Gotowe."
-
