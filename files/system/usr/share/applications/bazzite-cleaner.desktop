@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Bazzite Cleaner
+Comment=Bezpieczne czyszczenie pamięci podręcznej
+Exec=bazzite-cleaner
+Icon=edit-clear-all
+Terminal=false
+Categories=System;Utility;
+StartupNotify=true
