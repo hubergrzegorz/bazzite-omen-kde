@@ -76,7 +76,7 @@ Instalowane systemowo:
 Dodana tapeta - Rajska Plaża
 Dodany motyw jasny/ciemny dla KDE PLASMA
 Dodane ikony Pure Adwaita
-Dodano konfigurację Mangohud
+Dodano konfigurację Mangohud (w STEAM użyj jako parametru: mangohud %command%)
 
 ---
 
@@ -95,8 +95,6 @@ Funkcje:
 Domyślny katalog kopii:
 
 ~/.kde_theme_backups
-
-Domyślny motyw Bazzite_Omen do pobrania z https://drive.google.com/file/d/1Zs26CvqzQAnf0IfmPysu7-5ZXMvFf4oQ/view?usp=sharing
 
 ### HP OMEN KEYBOARD
 

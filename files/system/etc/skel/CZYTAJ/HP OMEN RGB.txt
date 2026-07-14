@@ -6,4 +6,6 @@ Po pierwszym uruchamieniu systemu wykonaj komendę w terminalu:
 
 - sudo omen-installer
 
+W przypadku, gdy jądro Linux zostanie zaktualizowane do nowszej wersji, należy ponownie użyć omen-installer
+
 
