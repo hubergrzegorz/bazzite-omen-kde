@@ -80,7 +80,7 @@ Dodano konfigurację Mangohud (w STEAM użyj jako parametru: mangohud %command%)
 
 ---
 
-## Autorskie skrypty (są to moje projekty dostosowane do Bazzite. Ze względu na specyfikę systemu nie zadziałają w żadnym innym systemie)
+## Autorskie programy
 
 ### KDE Theme Manager
 
@@ -109,6 +109,11 @@ Funkcje:
 - losowe generowanie kolorów
 - import/eksport presetów
 ---
+
+### Bazzite cleaner
+
+- czyści katalog domowy ze zbędnych plików cache
+- ze względów bezpieczeństwa w pierwszej kolejności robiony jest backup (w razie potrzeby można przywrócić)
 
 ## Aliasy
 
