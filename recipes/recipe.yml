@@ -18,10 +18,9 @@ modules:
       - notify: true
         scope: system
         install:
-          - com.github.wwmm.easyeffects
           - com.heroicgameslauncher.hgl
           - org.onlyoffice.desktopeditors
-          - page.kramo.Cartridges
+
 
   - type: dnf
     install:
@@ -39,6 +38,8 @@ modules:
         - python3-psutil
         - brave-browser
         - darkly
+        - easyeffects
         - kwin-effects-better-blur-dx
+
 
   - type: signing
