@@ -6,51 +6,87 @@ REPO="https://github.com/alessandromrc/omen-rgb-keyboard.git"
 TARGET="/var/lib/omen-rgb-keyboard"
 
 echo "========================================"
-echo " HP OMEN RGB - Pełna instalacja"
+echo " HP OMEN RGB - Pełna instalacja (Bazzite)"
 echo "========================================"
 
-echo "[1/7] Sprawdzanie narzędzi..."
+echo "[1/8] Sprawdzanie i konfiguracja Blacklist (hp_wmi)..."
+# Usuwamy konfliktowy moduł z pamięci na czas instalacji
+sudo modprobe -r hp_wmi || true
+
+# Sprawdzamy czy hp_wmi jest już zablokowany w argumentach kernela rpm-ostree
+if rpm-ostree kargs | grep -q "modprobe.blacklist=hp_wmi"; then
+    echo "-> hp_wmi jest już na czarnej liście. Przechodzę dalej."
+    NEED_REBOOT=0
+else
+    echo "-> Brak hp_wmi na czarnej liście. Dodaję blokadę..."
+    sudo rpm-ostree kargs --append="modprobe.blacklist=hp_wmi"
+    echo "⚠️ DODANO BLACKLISTĘ. Wymagany będzie restart systemu po zakończeniu instalacji!"
+    NEED_REBOOT=1
+fi
+
+echo "[2/8] Sprawdzanie narzędzi..."
 for cmd in git gcc make; do
-    command -v "$cmd" >/dev/null || { echo "Brak programu: $cmd"; exit 1; }
+    command -v "$cmd" >/dev/null || { echo "Brak programu: $cmd. Upewnij się, że uruchamiasz to w środowisku deweloperskim Bazzite."; exit 1; }
 done
 
-echo "[2/7] Pobieranie repozytorium..."
+echo "[3/8] Pobieranie repozytorium..."
 if [ -d "$TARGET" ]; then
     echo "Wykryto istniejącą instalację. Usuwanie..."
     sudo rm -rf "$TARGET"
 fi
 
 sudo git clone "$REPO" "$TARGET"
-
 sudo chown -R "$USER:$USER" "$TARGET"
 
-echo "[3/7] Kompilacja sterownika..."
+echo "[4/8] Kompilacja sterownika..."
 cd "$TARGET/src"
-make -C /lib/modules/$(uname -r)/build M=$PWD clean || true
-make -C /lib/modules/$(uname -r)/build M=$PWD modules
 
-echo "[4/7] Instalacja loadera..."
-cat >/tmp/omen-loader.sh <<'EOF'
+# Sprawdzenie poprawnej ścieżki do nagłówków jądra w Bazzite
+KERNEL_BUILD="/lib/modules/$(uname -r)/build"
+if [ ! -d "$KERNEL_BUILD" ]; then
+    echo "BŁĄD: Nie znaleziono nagłówków jądra w $KERNEL_BUILD."
+    echo "Uruchom najpierw: ujust setup-dev-layers"
+    exit 1
+fi
+
+make -C "$KERNEL_BUILD" M=$PWD clean || true
+make -C "$KERNEL_BUILD" M=$PWD modules
+
+echo "[5/8] Instalacja zaawansowanego loadera (z autorekompilacją)..."
+sudo mkdir -p /var/usrlocal/sbin
+
+sudo tee /var/usrlocal/sbin/omen-loader.sh >/dev/null <<'EOF'
 #!/usr/bin/env bash
 set -e
-MODULE="/var/lib/omen-rgb-keyboard/src/omen_rgb_keyboard.ko"
+
+SRC_DIR="/var/lib/omen-rgb-keyboard/src"
+MODULE="$SRC_DIR/omen_rgb_keyboard.ko"
+CURRENT_KERNEL=$(uname -r)
 
 if lsmod | grep -q "^omen_rgb_keyboard"; then
     exit 0
 fi
 
+# Inteligentne sprawdzanie i przebudowa przy zmianie kernela po aktualizacji systemu Bazzite
+if [ ! -f "$MODULE" ] || [ "$(modinfo -F vermagic "$MODULE" | awk '{print $1}')" != "$CURRENT_KERNEL" ]; then
+    echo "Wykryto zmianę jądra ($CURRENT_KERNEL). Autorekompilacja sterownika HP Omen..."
+    cd "$SRC_DIR"
+    make -C /lib/modules/$CURRENT_KERNEL/build M=$PWD clean || true
+    make -C /lib/modules/$CURRENT_KERNEL/build M=$PWD modules
+fi
+
 /usr/sbin/insmod "$MODULE"
 EOF
 
-sudo install -Dm755 /tmp/omen-loader.sh /usr/local/sbin/omen-loader.sh
+sudo chmod +x /var/usrlocal/sbin/omen-loader.sh
 
-echo "[5/7] Konfiguracja SELinux..."
+echo "[6/8] Konfiguracja SELinux..."
 if command -v semanage >/dev/null 2>&1; then
     sudo semanage fcontext -a -t modules_object_t "/var/lib/omen-rgb-keyboard/src/omen_rgb_keyboard\.ko" 2>/dev/null || true
     sudo restorecon -v /var/lib/omen-rgb-keyboard/src/omen_rgb_keyboard.ko 2>/dev/null || true
 fi
 
-echo "[6/7] Instalacja usługi systemd..."
+echo "[7/8] Instalacja usługi systemd..."
 sudo tee /etc/systemd/system/omen-rgb.service >/dev/null <<'EOF'
 [Unit]
 Description=HP Omen RGB Keyboard Driver
@@ -69,7 +105,14 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable omen-rgb.service
 
-echo "[7/7] Uruchamianie sterownika..."
+echo "[8/8] Uruchamianie sterownika..."
 sudo systemctl restart omen-rgb.service || true
 
-echo "Gotowe."
+echo "========================================"
+if [ "$NEED_REBOOT" -eq 1 ]; then
+    echo "Gotowe! Ponieważ dodano nową blokadę konfliktu (hp_wmi),"
+    echo "URUCHOM PONOWNIE KOMPUTER, aby zmiany weszły w życie na stałe."
+else
+    echo "Gotowe! Sterownik został pomyślnie zainstalowany i zabezpieczony przed aktualizacjami Bazzite."
+fi
+echo "========================================"
