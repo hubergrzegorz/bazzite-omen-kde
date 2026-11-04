@@ -24,16 +24,10 @@ modules:
     install:
       packages:
         - git
-        - gcc
-        - make
-        - dkms
-        - kernel-devel
         - mc
         - python3-pyqt6
-        - python3-pyside6
         - python3-tkinter
         - python3-send2trash
-        - python3-psutil
         - brave-browser
         - darkly
         - easyeffects
