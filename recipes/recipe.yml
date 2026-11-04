@@ -20,9 +20,7 @@ modules:
     repos:
       files:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-      copr:
-        - deltacopy/darkly
-        - infinality/kwin-effects-better-blur-dx
+        - https://copr.fedorainfracloud.org/coprs/deltacopy/darkly/repo/fedora-45/deltacopy-darkly-fedora-45.repo
     install:
       packages:
         - git
@@ -39,7 +37,6 @@ modules:
         - brave-browser
         - darkly
         - easyeffects
-        - kwin-effects-better-blur-dx
 
   - type: files
     files:
