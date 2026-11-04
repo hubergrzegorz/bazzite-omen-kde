@@ -21,8 +21,12 @@ modules:
           - com.heroicgameslauncher.hgl
           - org.onlyoffice.desktopeditors
 
-
   - type: dnf
+    repos:
+      files:
+        - system/etc/yum.repos.d/darkly.repo
+        - system/etc/yum.repos.d/brave.repo
+        - system/etc/yum.repos.dinfinality-kwin.repo
     install:
       packages:
         - git
@@ -40,6 +44,5 @@ modules:
         - darkly
         - easyeffects
         - kwin-effects-better-blur-dx
-
 
   - type: signing
