@@ -26,7 +26,7 @@ modules:
       files:
         - system/etc/yum.repos.d/darkly.repo
         - system/etc/yum.repos.d/brave.repo
-        - system/etc/yum.repos.dinfinality-kwin.repo
+        - system/etc/yum.repos.d/infinality-kwin.repo
     install:
       packages:
         - git
