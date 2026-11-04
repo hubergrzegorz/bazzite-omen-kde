@@ -8,11 +8,6 @@ image-version: stable
 
 modules:
 
-  - type: files
-    files:
-      - source: system
-        destination: /
-
   - type: default-flatpaks
     configurations:
       - notify: true
@@ -24,9 +19,10 @@ modules:
   - type: dnf
     repos:
       files:
-        - system/etc/yum.repos.d/darkly.repo
-        - system/etc/yum.repos.d/brave.repo
-        - system/etc/yum.repos.d/infinality-kwin.repo
+        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      copr:
+        - deltacopy/darkly
+        - infinality/kwin-effects-better-blur-dx
     install:
       packages:
         - git
@@ -44,5 +40,10 @@ modules:
         - darkly
         - easyeffects
         - kwin-effects-better-blur-dx
+
+  - type: files
+    files:
+      - source: system
+        destination: /
 
   - type: signing
